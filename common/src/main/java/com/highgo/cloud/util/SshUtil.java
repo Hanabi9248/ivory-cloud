@@ -682,6 +682,10 @@ public class SshUtil {
         } else {
             // ide运行
             File file = new File(java.net.URI.create(url.toString()));
+            if (file.isFile()) {
+                SshUtil.copy(dirPath);
+                return;
+            }
             List<File> allFileList = new ArrayList<>();
             getAllFile(file, allFileList);
 
