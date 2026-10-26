@@ -171,7 +171,7 @@ public class ShellUtil {
     }
 
     public static boolean execShellWithTimeout(String shellCmd, long time, TimeUnit unit) {
-        boolean result = true;
+        boolean result = false;
         log.info("Begin to execute command: [{}], timeout: [{}], unit: [{}]", shellCmd, time, unit.name());
         try {
             Process ps = Runtime.getRuntime().exec(shellCmd);
