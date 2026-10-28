@@ -50,7 +50,7 @@ public class ShellUtil {
         log.debug("Begin to execute command: [{}]", Arrays.toString(shellCmd));
 
         try {
-            Process ps = Runtime.getRuntime().exec(shellCmd);
+            Process ps = new ProcessBuilder(shellCmd).redirectErrorStream(true).start();
             // -- catch the deploy log start
             BufferedInputStream in = new BufferedInputStream(ps.getInputStream());
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
